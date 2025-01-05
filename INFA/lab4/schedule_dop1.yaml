@@ -1,0 +1,62 @@
+schedule:
+  day:
+  - Wednesday:
+      lessons:
+      - lesson_1:
+          begin_time: 08:20
+          building: Кронверкский пр., д. 49, лит. А
+          classroom: Lemon Classroom (1419)
+          end_time: 09:50
+          teacher: Гаврилов Антон Валерьевич
+          title: Программирование
+          type: Лекция
+      - lesson_2:
+          begin_time: '11:40'
+          building: Кронверкский пр., д. 49, лит. А
+          classroom: '2116'
+          end_time: '13:10'
+          teacher: Ермаков Михаил Константинович
+          title: Основы профессиональной деятельности
+          type: Лабораторная
+      - lesson_3:
+          begin_time: '13:30'
+          building: Кронверкский пр., д. 49, лит. А
+          classroom: '2116'
+          end_time: '15:00'
+          teacher: Ермаков Михаил Константинович
+          title: Основы профессиональной деятельности
+          type: Лабораторная
+  - Friday:
+      lessons:
+      - lesson_1:
+          begin_time: '11:40'
+          building: ул.Ломоносова, д.9, лит. M
+          classroom: '1124'
+          end_time: '13:10'
+          teacher: Попов Игорь Юрьевич
+          title: Математический анализ
+          type: Лекция
+      - lesson_2:
+          begin_time: '13:30'
+          building: ул.Ломоносова, д.9, лит. Б
+          classroom: '4306'
+          end_time: '15:00'
+          teacher: Попов Игорь Юрьевич
+          title: Математический анализ
+          type: Практика
+      - lesson_3:
+          begin_time: '15:20'
+          building: ул.Ломоносова, д.9, лит. Е
+          classroom: '3211'
+          end_time: '16:50'
+          teacher: Балабанова Анна Андреевна
+          title: Английский язык A2
+          type: Практика
+      - lesson_4:
+          begin_time: '17:00'
+          building: ул.Ломоносова, д.9, лит. Е
+          classroom: '3211'
+          end_time: '18:30'
+          teacher: Балабанова Анна Андреевна
+          title: Английский язык A2
+          type: Практика

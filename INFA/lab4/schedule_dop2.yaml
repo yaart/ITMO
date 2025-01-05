@@ -1,0 +1,62 @@
+schedule: 
+      day: 
+          Wednesday: 
+            lessons:
+            - lesson_1: 
+                  title: Программирование
+                  type: Лекция
+                  begin_time: 08:20
+                  end_time: 09:50
+                  teacher: Гаврилов Антон Валерьевич
+                  building: Кронверкский пр. д. 49 лит. А
+                  classroom: Lemon Classroom (1419)
+            - lesson_2: 
+                  title: Основы профессиональной деятельности
+                  type: Лабораторная
+                  begin_time: 11:40
+                  end_time: 13:10
+                  teacher: Ермаков Михаил Константинович
+                  building: Кронверкский пр. д. 49 лит. А
+                  classroom: 2116
+            - lesson_3: 
+                  title: Основы профессиональной деятельности
+                  type: Лабораторная
+                  begin_time: 13:30
+                  end_time: 15:00
+                  teacher: Ермаков Михаил Константинович
+                  building: Кронверкский пр. д. 49 лит. А
+                  classroom: 2116
+          Friday: 
+            lessons:
+            - lesson_1: 
+                  title: Математический анализ
+                  type: Лекция
+                  begin_time: 11:40
+                  end_time: 13:10
+                  teacher: Попов Игорь Юрьевич
+                  building: ул.Ломоносова д.9 лит. M
+                  classroom: 1124
+            - lesson_2: 
+                  title: Математический анализ
+                  type: Практика
+                  begin_time: 13:30
+                  end_time: 15:00
+                  teacher: Попов Игорь Юрьевич
+                  building: ул.Ломоносова д.9 лит. Б
+                  classroom: 4306
+            - lesson_3: 
+                  title: Английский язык A2
+                  type: Практика
+                  begin_time: 15:20
+                  end_time: 16:50
+                  teacher: Балабанова Анна Андреевна
+                  building: ул.Ломоносова д.9 лит. Е
+                  classroom: 3211
+            - lesson_4: 
+                  title: Английский язык A2
+                  type: Практика
+                  begin_time: 17:00
+                  end_time: 18:30
+                  teacher: Балабанова Анна Андреевна
+                  building: ул.Ломоносова д.9 лит. Е
+                  classroom: 3211

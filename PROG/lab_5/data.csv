@@ -1,0 +1,6 @@
+id,name,x,y,creationDate,minimalPoint,tunedInWorks,difficulty,disciplineName,disciplineLectureHours,disciplinePracticeHours,disciplineSelfStudyHours,disciplineLabsCount
+1,ad,150,50,2025-03-26T14:30:00Z,7.5,15,EASY,Информатика,40,20,120,5
+2,Исследование алгоритмов,200,75,2025-03-26T15:45:00Z,8.2,10,TERRIBLE,Программирование,35,15,150,3
+3,Физический эксперимент,-3,60,2025-03-26T16:20:00Z,6.0,20,EASY,Физика,30,25,90,8
+4,Математический анализ,220,80,2025-03-26T17:10:00Z,9.1,5,NORMAL,Математика,45,30,200,3
+5,ad,1,1,2025-04-09T15:57:00.928563148+03:00[Europe/Moscow],1.0,1,EASY,,,,,

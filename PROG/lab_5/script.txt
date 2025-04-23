@@ -1,0 +1,2 @@
+add ExampleLab 100 50 7.5 10 NORMAL
+show

@@ -1,0 +1,4 @@
+show
+info
+remove_lower 2
+execute_script rec1.txt

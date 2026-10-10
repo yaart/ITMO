@@ -1,0 +1,98 @@
+@startuml
+skinparam backgroundColor #FEFEFE
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 100
+
+actor "Пользователь" as User
+participant "Клавиатура\n(PCA9538)" as KB
+participant "Task_Input\n(AboveNormal)" as Input
+queue "inputQueue" as IQ
+participant "Task_Game\n(Normal)" as Game
+queue "soundQueue" as SQ
+participant "Task_Sound\n(AboveNormal)" as Sound
+participant "Зуммер\n(TIM2 PWM)" as Buzzer
+participant "Task_Display\n(BelowNormal)" as Display
+participant "OLED\n(SSD1306)" as Oled
+participant "gameMutex" as GM
+participant "i2cMutex" as IM
+
+== Инициализация (main) ==
+[-> Input : osKernelStart()
+[-> Game : osKernelStart()
+[-> Display : osKernelStart()
+[-> Sound : osKernelStart()
+
+== Игровой цикл ==
+
+loop каждые 30 мс
+    Input -> IM : osMutexWait(i2cMutex)
+    Input -> KB : KB_AnyPressed()\nпо I2C (0xE2)
+    KB --> Input : 0 или 1
+    Input -> IM : osMutexRelease(i2cMutex)
+    alt нажатие обнаружено
+        Input -> IQ : osMessagePut(inputQueue, EVT_FLAP)
+        Input -> Input : HAL_GPIO_TogglePin(PD15)\n(светодиод)
+    end
+end
+
+loop каждые 40 мс
+    Game -> IQ : osMessageGet(inputQueue, 0)\n(неблокирующий опрос)
+    alt есть событие
+        Game -> GM : osMutexWait(gameMutex)
+        Game -> Game : Flappy_OnFlap(&g_game)
+        Game -> GM : osMutexRelease(gameMutex)
+        Game -> SQ : osMessagePut(soundQueue, SND_FLAP)
+    end
+
+    Game -> GM : osMutexWait(gameMutex)
+    Game -> Game : Flappy_Tick(&g_game)\n(физика, трубы, столкновения)
+    alt счёт увеличился
+        Game -> SQ : osMessagePut(soundQueue, SND_SCORE)
+    else Game Over
+        Game -> SQ : osMessagePut(soundQueue, SND_DIE)
+    end
+    Game -> GM : osMutexRelease(gameMutex)
+end
+
+loop каждые 60 мс
+    Display -> GM : osMutexWait(gameMutex)
+    Display -> Display : snap = g_game\n(снимок состояния)
+    Display -> GM : osMutexRelease(gameMutex)
+
+    Display -> IM : osMutexWait(i2cMutex)
+    Display -> Display : Flappy_Draw(&snap)\n(буфер в RAM)
+    Display -> Oled : oled_UpdateScreen()\nпо I2C (0x78)
+    Display -> IM : osMutexRelease(i2cMutex)
+    Display -> Display : HAL_GPIO_TogglePin(PD13)\n(светодиод)
+end
+
+loop звуковой цикл
+    Sound -> SQ : osMessageGet(soundQueue, 30)\n(с таймаутом)
+    alt есть событие
+        Sound -> Buzzer : Buzzer_Beep(ноты)\nPWM на TIM2 CH1 (PA5)
+    else таймаут в Ready/Playing
+        Sound -> GM : osMutexWait(gameMutex)
+        Sound -> Sound : mode = g_game.mode
+        Sound -> GM : osMutexRelease(gameMutex)
+        Sound -> Buzzer : Sound_PlayBgNote(idx++)\n(фоновая мелодия)
+    else таймаут в Game Over
+        Sound -> Buzzer : Buzzer_Set_Volume(MUTE)
+    end
+end
+
+== Взаимодействие с пользователем ==
+User -> KB : нажатие кнопки
+KB -> Input : (опрос)
+Input -> IQ : EVT_FLAP
+IQ -> Game : EVT_FLAP
+Game -> SQ : звуковое событие
+SQ -> Sound : ноты
+Sound -> Buzzer : звук
+Buzzer --> User : звуковой сигнал
+Game -> GM : обновление g_game
+GM -> Display : снимок
+Display -> Oled : обновление экрана
+Oled --> User : изображение
+
+@enduml

@@ -1,0 +1,45 @@
+{
+  "seed": 42,
+  "selected_features": [
+    "population",
+    "bruises",
+    "cap-shape",
+    "gill-color"
+  ],
+  "samples": 8124,
+  "missing_stalk_root": 2480,
+  "tree": {
+    "nodes": 141,
+    "leaves": 96,
+    "depth": 4,
+    "max_children": 12
+  },
+  "root": "gill-color",
+  "train": {
+    "size": 6499,
+    "positives": 3133,
+    "TP": 2821,
+    "FP": 105,
+    "TN": 3261,
+    "FN": 312,
+    "accuracy": 0.9358362825050007,
+    "precision": 0.9641148325358851,
+    "recall": 0.9004149377593361,
+    "roc_auc": 0.9845539091938896,
+    "pr_auc": 0.9843713197990922
+  },
+  "test": {
+    "size": 1625,
+    "positives": 783,
+    "TP": 705,
+    "FP": 30,
+    "TN": 812,
+    "FN": 78,
+    "accuracy": 0.9335384615384615,
+    "precision": 0.9591836734693877,
+    "recall": 0.9003831417624522,
+    "roc_auc": 0.9827828893681952,
+    "pr_auc": 0.9821272805831531
+  },
+  "data_sha256": "e65d082030501a3ebcbcd7c9f7c71aa9d28fdfff463bf4cf4716a3fe13ac360e"
+}

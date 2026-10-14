@@ -1,0 +1,877 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Кодировки ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{cmap}
+
+% --- Геометрия ---
+\usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Пакеты ---
+\usepackage{graphicx,float,hyperref,enumitem,booktabs,amsmath,amssymb,xcolor,listings,tocloft}
+\renewcommand{\contentsname}{}
+\renewcommand{\cftsecafterpnum}{\vspace{2pt}}
+
+% --- Компактные списки ---
+\setlist{nosep,leftmargin=*}
+
+% --- Листинги ---
+\lstset{
+    basicstyle=\ttfamily\footnotesize, breaklines=true, frame=single,
+    backgroundcolor=\color{gray!5}, rulecolor=\color{gray!50},
+    numbers=left, numberstyle=\tiny\color{gray}, numbersep=4pt,
+    tabsize=2, showstringspaces=false, aboveskip=4pt, belowskip=4pt,
+    language=Python,
+}
+
+% --- Гиперссылки ---
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+
+% --- Вставка скриншота ---
+\newcommand{\img}[4]{%
+    \IfFileExists{#1}{%
+        \begin{figure}[H]\centering
+            \includegraphics[width=#4\textwidth,keepaspectratio]{#1}
+            \caption{#2}\label{#3}
+        \end{figure}
+    }{}%
+}
+
+% --- Авторы ---
+\newcommand{\AuthorA}{Ясаков Артём}
+\newcommand{\AuthorB}{Сарваров Тимур}
+\newcommand{\Group}{P3313}
+\newcommand{\Teacher}{Жданов Андрей Дмитриевич}
+\newcommand{\ImgDir}{/home/yaart/ITMO/3 курс/СИИ/2 модуль/report_images}
+
+% --- Уплотнение ---
+\raggedbottom
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{6pt plus 1pt minus 1pt}
+\setlength{\floatsep}{6pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{2pt}
+
+\begin{document}
+
+\begin{titlepage}\centering
+{\large Федеральное государственное автономное образовательное\\
+учреждение высшего образования\\
+«Национальный исследовательский университет ИТМО»\par}
+{\large Факультет программной инженерии и компьютерной техники\par}
+\vspace{2.5cm}
+{\Huge\bfseries Отчёт по Модулю 2\par}
+\vspace{0.4cm}
+{\Large Классические методы машинного обучения\par}
+\vspace{0.4cm}
+{\Large Линейная регрессия, \(k\)-NN, деревья решений,\\
+логистическая регрессия\par}
+\vspace{3.5cm}
+\begin{flushright}
+\begin{tabular}{rl}
+    \textbf{Выполнили:} & \AuthorA \\
+                        & \AuthorB \\[6pt]
+    \textbf{Группа:}    & \Group \\[12pt]
+    \textbf{Проверил:}  & \Teacher \\
+\end{tabular}
+\end{flushright}
+\vfill
+{\large Санкт-Петербург, 2026 г.\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ============================================================
+\section*{Аннотация}
+\addcontentsline{toc}{section}{Аннотация}
+
+В рамках Модуля~2 дисциплины «Системы искусственного интеллекта»
+реализованы «с нуля» четыре классических алгоритма машинного обучения:
+линейная регрессия (California Housing), метод \(k\)-ближайших соседей
+(Wine), дерево решений ID3 (Mushroom) и логистическая регрессия
+(Titanic). Все реализации выполнены на Python с использованием только
+NumPy и Pandas (кроме дерева решений, использующего исключительно
+стандартную библиотеку). Проведён сравнительный анализ методов по
+метрикам качества, исследовано влияние гиперпараметров и наборов
+признаков. Сформулированы практические рекомендации по выбору метода
+в зависимости от типа задачи, размера данных и требований
+к интерпретируемости.
+
+\medskip
+\noindent\textbf{Ключевые слова:} машинное обучение, линейная регрессия,
+\(k\)-ближайших соседей, дерево решений, логистическая регрессия,
+градиентный спуск, метод Ньютона, классификация, регрессия,
+гиперпараметры.
+
+\newpage
+
+% ============================================================
+\section{Введение}
+
+\subsection{Цели модуля}
+
+Модуль~2 направлен на освоение фундаментальных алгоритмов машинного
+обучения через их самостоятельную реализацию. В ходе модуля решаются
+следующие задачи:
+
+\begin{itemize}
+    \item Линейная регрессия — предсказание непрерывной величины
+          (стоимость жилья) по набору числовых и категориальных
+          признаков.
+    \item \(k\)-ближайших соседей — классификация объектов (сорт вина)
+          без явного обучения модели.
+    \item Дерево решений — интерпретируемая классификация (съедобность
+          грибов) с автоматическим построением правил.
+    \item Логистическая регрессия — бинарная классификация (выживаемость
+          пассажиров Титаника) с вероятностной интерпретацией.
+\end{itemize}
+
+\subsection{Критерии выбора метода}
+
+Выбор алгоритма определяется несколькими ключевыми факторами:
+
+\begin{itemize}
+    \item \textbf{Тип целевой переменной.} Непрерывная — регрессия;
+          категориальная — классификация.
+    \item \textbf{Размер и качество данных.} \(k\)-NN чувствителен
+          к размерности и требует масштабирования; деревья решений
+          устойчивы к пропускам и выбросам.
+    \item \textbf{Интерпретируемость.} Линейные модели и деревья
+          позволяют понять вклад каждого признака; \(k\)-NN не даёт
+          такой возможности.
+    \item \textbf{Стоимость ошибок.} В задачах классификации выбор
+          между Precision и Recall зависит от цены ложноположительных
+          и ложноотрицательных срабатываний.
+\end{itemize}
+
+\subsection{Структура отчёта}
+
+Отчёт последовательно описывает четыре лабораторные работы, каждая
+из которых содержит: постановку задачи, описание данных, принцип
+работы метода с псевдокодом, результаты экспериментов и рекомендации
+по применению. Завершается отчёт сравнительным анализом методов
+и общими выводами.
+
+\newpage
+
+% ============================================================
+\section{Данные и общая методология}
+
+\subsection{Выбранные датасеты}
+
+Для каждой лабораторной работы использован отдельный датасет,
+подобранный под специфику метода (таблица~\ref{tab:datasets}).
+
+\begin{table}[H]\centering\small
+\caption{Обзор датасетов}\label{tab:datasets}
+\begin{tabular}{llp{3.5cm}ccc}\toprule
+Лаб. & Метод & Датасет & Объектов & Признаков & Классов \\ \midrule
+3 & Линейная регрессия & California Housing & 20\,640 & 8 + 1 кат. & — \\
+4 & \(k\)-NN & Wine & 178 & 13 & 3 \\
+5 & Дерево решений & Mushroom & 8\,124 & 22 кат. & 2 \\
+6 & Логист. регрессия & Titanic & 891 & 7 + 2 кат. & 2 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Предобработка данных}
+
+Во всех работах применялась единая методология:
+
+\begin{enumerate}
+    \item \textbf{Пропуски:} заполнение медианой (числовые) или
+          исключение признака (категориальные с большим числом
+          пропусков, например, \texttt{deck} в Titanic — 688 из 891).
+    \item \textbf{Категориальные признаки:} one-hot кодирование
+          с~\texttt{drop\_first} для линейных моделей; для дерева
+          решений используются исходные категории.
+    \item \textbf{Масштабирование:} Z-нормировка по статистикам
+          обучающей выборки для методов, чувствительных к масштабу
+          (\(k\)-NN, логистическая регрессия).
+    \item \textbf{Разбиение:} train/test 80/20 со стратификацией
+          (для классификации) или случайное (для регрессии).
+    \item \textbf{Random seed:} 42 — фиксирован для воспроизводимости.
+\end{enumerate}
+
+\subsection{Инфраструктура воспроизводимости}
+
+\begin{itemize}
+    \item Язык: Python 3.13.
+    \item Зависимости: NumPy, Pandas, Matplotlib, Seaborn, scikit-learn
+          (только для \texttt{train\_test\_split} и
+          \texttt{StandardScaler} в~лабах 4 и~6; дерево решений —
+          исключительно стандартная библиотека).
+    \item Запуск: \texttt{python3 lab\_*.py} из соответствующей
+          директории.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Лабораторная работа 3. Линейная регрессия}
+
+\subsection{Постановка задачи}
+
+Предсказать медианную стоимость жилья (\texttt{median\_house\_value})
+в~районах Калифорнии по набору социально-экономических
+и~географических признаков.
+
+\subsection{Описание данных}
+
+\begin{itemize}
+    \item \textbf{Источник:} California Housing Prices (A.~Géron,
+          Hands-On Machine Learning).
+    \item \textbf{Объектов:} 20\,640 районов.
+    \item \textbf{Признаки:} 8 числовых (\texttt{longitude},
+          \texttt{latitude}, \texttt{housing\_median\_age},
+          \texttt{total\_rooms}, \texttt{total\_bedrooms},
+          \texttt{population}, \texttt{households},
+          \texttt{median\_income}) + 1 категориальный
+          (\texttt{ocean\_proximity}, 5 значений).
+    \item \textbf{Целевая:} \texttt{median\_house\_value} (доллары США).
+    \item \textbf{Пропуски:} 207 в \texttt{total\_bedrooms} (заполнены
+          медианой 435.0).
+\end{itemize}
+
+\img{\ImgDir/lr_target_hist.png}{Распределение целевой переменной}{fig:lr-hist}{0.85}
+\img{\ImgDir/lr_income_vs_target.png}{Доход vs Стоимость жилья}{fig:lr-scatter}{0.85}
+
+\subsection{Зачем метод}
+
+Линейная регрессия — базовый метод для задач с непрерывной целевой
+переменной. Модель предполагает линейную зависимость:
+\(\hat{y} = \beta_0 + \sum_{j=1}^{d} \beta_j x_j\).
+
+\textbf{Условия применимости:} линейная связь признаков с целевой,
+отсутствие сильной мультиколлинеарности, нормальность остатков.
+\textbf{Ограничения:} не улавливает нелинейные зависимости,
+чувствительна к выбросам.
+
+\subsection{Принцип работы}
+
+Метод наименьших квадратов (МНК) минимизирует сумму квадратов
+остатков: \(\hat{\beta} = \arg\min_{\beta} \|y - X\beta\|_2^2\).
+Аналитическое решение через нормальные уравнения:
+\(\hat{\beta} = (X^T X)^{-1} X^T y\).
+
+\fbox{\begin{minipage}{0.95\textwidth}
+\textbf{Псевдокод:} Линейная регрессия (МНК)
+\begin{enumerate}
+    \item \textbf{Вход:} \(X \in \mathbb{R}^{n \times d}\), \(y \in \mathbb{R}^n\).
+    \item Добавить столбец единиц: \(X_{\text{aug}} = [\mathbf{1} \mid X]\).
+    \item Составить нормальные уравнения: \(A = X_{\text{aug}}^T X_{\text{aug}}\),
+          \(b = X_{\text{aug}}^T y\).
+    \item Решить \(A\beta = b\) методом Гаусса с выбором главного элемента.
+    \item \textbf{Выход:} \(\beta = [\beta_0, \beta_1, \dots, \beta_d]\).
+\end{enumerate}
+\end{minipage}}
+
+\medskip
+\textbf{Ключевой фрагмент — решение СЛАУ методом Гаусса (без \texttt{np.linalg}):}
+
+\begin{lstlisting}[caption={Метод Гаусса с выбором главного элемента},label={lst:gauss}]
+def gaussian_solve(A, b):
+    A, b = np.array(A, dtype=float, copy=True), np.array(b, dtype=float, copy=True)
+    n = len(b)
+    for k in range(n):
+        pivot = k + int(np.argmax(np.abs(A[k:, k])))
+        if pivot != k: A[[k, pivot]] = A[[pivot, k]]; b[[k, pivot]] = b[[pivot, k]]
+        A[k, k:] /= A[k, k]; b[k] /= A[k, k]
+        for i in range(n):
+            if i == k: continue
+            factor = A[i, k]; A[i, k:] -= factor * A[k, k:]; b[i] -= factor * b[k]
+    return b
+\end{lstlisting}
+
+\subsection{Эксперименты}
+
+Построены 4 модели с последовательным расширением набора признаков:
+
+\begin{enumerate}
+    \item \textbf{Модель 1} — только \texttt{median\_income}.
+    \item \textbf{Модель 2} — \texttt{median\_income},
+          \texttt{housing\_median\_age}, \texttt{latitude},
+          \texttt{longitude}.
+    \item \textbf{Модель 3} — все 8 числовых признаков + one-hot
+          кодирование \texttt{ocean\_proximity} (4 бинарных признака,
+          базовая категория: \texttt{<1H OCEAN}).
+    \item \textbf{Бонус} — модель 3 + синтетический признак
+          \texttt{bedrooms\_per\_room}.
+\end{enumerate}
+
+\begin{table}[H]\centering
+\caption{Результаты линейной регрессии}\label{tab:lr-results}
+\begin{tabular}{lccc}\toprule
+Модель & Признаков & R² (train) & R² (test) \\ \midrule
+Модель 1 (только доход)    & 1  & 0.4748 & 0.4683 \\
+Модель 2 (+гео+возраст)    & 4  & 0.5954 & 0.5886 \\
+Модель 3 (все признаки)    & 12 & 0.6462 & 0.6423 \\
+Бонус (+синтетический)     & 13 & 0.6487 & \textbf{0.6446} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\img{\ImgDir/lr_r2_comparison.png}{Сравнение R² моделей}{fig:lr-r2}{0.85}
+\img{\ImgDir/lr_correlation.png}{Корреляционная матрица числовых признаков}{fig:lr-corr}{0.9}
+
+\textbf{Анализ:}
+\begin{itemize}
+    \item \texttt{median\_income} — доминирующий признак: одна лишь
+          эта переменная даёт \(R^2 \approx 0.47\).
+    \item Добавление географических координат и возраста жилья
+          увеличивает \(R^2\) на \(\sim 0.12\).
+    \item Полный набор с категориальными признаками даёт \(R^2 \approx
+          0.64\); синтетический признак даёт минимальный прирост
+          (\(+0.002\)).
+    \item Переобучение отсутствует: разница train/test \(R^2\)
+          минимальна во всех моделях.
+\end{itemize}
+
+\subsection{Когда использовать}
+
+\begin{itemize}
+    \item Прогнозирование цен недвижимости, аренды.
+    \item Оценка влияния факторов на экономические показатели.
+    \item Быстрый baseline для задач регрессии перед применением
+          сложных моделей.
+    \item Задачи, где требуется интерпретация коэффициентов (на сколько
+          изменится целевая при изменении признака на единицу).
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Лабораторная работа 4. Метод \(k\)-ближайших соседей}
+
+\subsection{Постановка задачи}
+
+Классифицировать сорт вина по 13 химическим показателям. Многоклассовая
+задача (3 сорта винограда).
+
+\subsection{Описание данных}
+
+\begin{itemize}
+    \item \textbf{Источник:} \texttt{sklearn.datasets.load\_wine} (UCI
+          Wine).
+    \item \textbf{Объектов:} 178 образцов (сбалансированы: 59, 71, 48).
+    \item \textbf{Признаки:} 13 числовых (alcohol, malic\_acid, ash,
+          alcalinity\_of\_ash, magnesium, total\_phenols, flavanoids,
+          nonflavanoid\_phenols, proanthocyanins, color\_intensity,
+          hue, od280/od315, proline).
+    \item \textbf{Пропуски:} отсутствуют.
+\end{itemize}
+
+\img{\ImgDir/knn_3d_scatter.png}{3D-визуализация: alcohol, flavanoids, color\_intensity}{fig:knn-3d}{0.8}
+
+\subsection{Зачем метод}
+
+\(k\)-NN — метод «ленивого обучения»: модель не имеет явной фазы
+обучения, а запоминает все обучающие примеры. Классификация
+выполняется по принципу «похожие объекты принадлежат одному классу».
+
+\textbf{Требования:} обязательное масштабирование признаков
+(чувствителен к масштабу), неэффективен при высокой размерности
+(«проклятие размерности»). \textbf{Ограничения:} медленный на этапе
+предсказания (\(O(n_{\text{train}} \cdot d)\) на один объект),
+чувствителен к шуму и неинформативным признакам.
+
+\subsection{Принцип работы}
+
+\fbox{\begin{minipage}{0.95\textwidth}
+\textbf{Псевдокод:} \(k\)-ближайших соседей
+\begin{enumerate}
+    \item \textbf{Вход:} обучающая выборка \((X_{\text{train}}, y_{\text{train}})\),
+          тестовый объект \(x\), число соседей \(k\).
+    \item Вычислить евклидовы расстояния до всех обучающих объектов:
+          \(d_i = \|x - x_i\|_2\).
+    \item Найти \(k\) объектов с наименьшими \(d_i\).
+    \item Класс — мажоритарное голосование:
+          \(\hat{y} = \arg\max_c \sum_{i \in \text{top-}k} \mathbb{1}[y_i = c]\).
+    \item \textbf{Выход:} предсказанный класс \(\hat{y}\).
+\end{enumerate}
+\end{minipage}}
+
+\medskip
+Для ускорения расстояния вычисляются векторизованно через тождество:
+\(\|a - b\|^2 = \|a\|^2 + \|b\|^2 - 2 a \cdot b\), что позволяет
+вычислить всю матрицу расстояний \((n_{\text{test}} \times
+n_{\text{train}})\) за одно матричное умножение.
+
+\begin{lstlisting}[caption={Векторизованное вычисление расстояний и голосование},label={lst:knn}]
+# Матрица расстояний (n_test x n_train) без циклов
+dists = (np.sum(X_test**2, axis=1)[:, None]
+       + np.sum(X_train**2, axis=1)[None, :]
+       - 2 * np.dot(X_test, X_train.T))
+# Для каждого тестового объекта
+top_k = y_train[np.argsort(dists[i])[:k]]
+pred = np.argmax(np.bincount(top_k, minlength=n_classes))
+\end{lstlisting}
+
+\subsection{Эксперименты}
+
+Построены две модели с разными наборами признаков:
+\begin{enumerate}
+    \item \textbf{Модель 1 (случайные):} 6 случайно отобранных
+          признаков (\texttt{od280/od315}, \texttt{color\_intensity},
+          \texttt{alcohol}, \texttt{proanthocyanins},
+          \texttt{total\_phenols}, \texttt{ash}).
+    \item \textbf{Модель 2 (фиксированные):} 5 наиболее информативных
+          признаков (\texttt{alcohol}, \texttt{flavanoids},
+          \texttt{color\_intensity}, \texttt{proline},
+          \texttt{total\_phenols}).
+\end{enumerate}
+
+Исследованы \(k \in \{1, 3, 5, 7, 10, 15\}\).
+
+\begin{table}[H]\centering
+\caption{Точность \(k\)-NN при разных \(k\)}
+\begin{tabular}{ccc}\toprule
+\(k\) & Модель 1 (случайные) & Модель 2 (фиксированные) \\ \midrule
+1  & 0.8889 & 0.9630 \\
+3  & 0.8889 & 0.9630 \\
+5  & 0.9074 & 0.9630 \\
+7  & \textbf{0.9259} & 0.9630 \\
+10 & 0.8889 & \textbf{0.9815} \\
+15 & 0.8889 & 0.9444 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\img{\ImgDir/knn_acc_vs_k.png}{Зависимость точности от \(k\)}{fig:knn-acc}{0.85}
+\img{\ImgDir/knn_confusion_matrices.png}{Матрицы ошибок (верхний ряд — Модель 1, нижний — Модель 2)}{fig:knn-cm}{1.0}
+
+\textbf{Анализ:}
+\begin{itemize}
+    \item Модель 2 стабильно превосходит Модель 1 за счёт включения
+          \texttt{flavanoids} и \texttt{proline} — наиболее
+          разделяющих признаков.
+    \item Оптимальное \(k = 10\) для Модели 2 (Accuracy = 0.9815).
+    \item При \(k = 15\) точность снижается из-за «размытия» границ
+          решающей области.
+    \item Класс 0 распознаётся практически безошибочно; ошибки
+          сосредоточены между классами 1 и 2 (матрицы ошибок
+          подтверждают).
+\end{itemize}
+
+\subsection{Когда использовать}
+
+\begin{itemize}
+    \item Быстрый baseline без настройки (нет фазы обучения).
+    \item Многоклассовая классификация с небольшим числом признаков.
+    \item Рекомендательные системы (поиск похожих товаров/фильмов).
+    \item Обнаружение аномалий (по расстоянию до соседей).
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Лабораторная работа 5. Деревья решений}
+
+\subsection{Постановка задачи}
+
+Классифицировать грибы на съедобные (\texttt{e}) и ядовитые
+(\texttt{p}) по набору категориальных признаков. Задача бинарной
+классификации с высокими требованиями к интерпретируемости
+(цена ошибки — жизнь человека).
+
+\subsection{Описание данных}
+
+\begin{itemize}
+    \item \textbf{Источник:} UCI Mushroom (Agaricus-Lepiota).
+    \item \textbf{Объектов:} 8\,124 образца (4\,208 съедобных,
+          3\,916 ядовитых).
+    \item \textbf{Признаки:} 22 категориальных (cap-shape, cap-color,
+          odor, gill-size, spore-print-color, population, habitat
+          и~др.).
+    \item \textbf{Пропуски:} 2\,480 в \texttt{stalk-root}
+          (обрабатываются как отдельная категория \texttt{?}).
+\end{itemize}
+
+\img{\ImgDir/dt_class_dist.png}{Распределение классов}{fig:dt-dist}{0.6}
+
+\subsection{Зачем метод}
+
+Деревья решений привлекательны своей \textbf{интерпретируемостью}:
+модель представляет собой набор правил «если… то…», понятных
+человеку. Метод автоматически выявляет нелинейные взаимодействия,
+не требует масштабирования и устойчив к выбросам.
+
+\textbf{Ограничения:} склонность к переобучению (глубокие деревья),
+чувствительность к малым изменениям данных, жадная стратегия
+построения не гарантирует глобального оптимума.
+
+\subsection{Принцип работы}
+
+Алгоритм ID3 строит дерево рекурсивно, выбирая на каждом шаге признак,
+дающий максимальный прирост информации:
+\[
+IG(S, A) = H(S) - \sum_{v \in \text{values}(A)} \frac{|S_v|}{|S|} H(S_v),
+\]
+где \(H(S) = -\sum_{c} p_c \log_2 p_c\) — энтропия Шеннона.
+
+\fbox{\begin{minipage}{0.95\textwidth}
+\textbf{Псевдокод:} Построение дерева (ID3)
+\begin{enumerate}
+    \item \textbf{Вход:} выборка \(S\), список признаков \(F\).
+    \item Если все объекты одного класса или \(F\) пуст — создать
+          лист с вероятностью класса \(P(\text{positive})\).
+    \item Для каждого признака \(A \in F\) вычислить
+          \(\text{IG}(S, A)\).
+    \item Выбрать \(A^* = \arg\max_A \text{IG}(S, A)\).
+    \item Для каждого значения \(v \in A^*\) рекурсивно построить
+          поддерево на \(S_v\) с признаками \(F \setminus \{A^*\}\).
+    \item \textbf{Выход:} узел с признаком \(A^*\) и дочерними
+          поддеревьями.
+\end{enumerate}
+\end{minipage}}
+
+\medskip
+Из 22 признаков случайно отбираются \(\lfloor\sqrt{22}\rfloor = 4\)
+(аналог Random Forest). Библиотеки: только \texttt{csv}, \texttt{math},
+\texttt{random} — никаких NumPy/Pandas/sklearn.
+
+\begin{lstlisting}[caption={Построение дерева ID3 — выбор лучшего признака},label={lst:tree}]
+def build_tree(rows, features):
+    prob = sum(r['class'] == 'p' for r in rows) / len(rows)
+    if prob in (0, 1) or not features:
+        return Node(len(rows), prob)
+    best_gain, best_feature = -math.inf, None
+    for f in features:
+        groups = {}; [groups.setdefault(r[f], []).append(r) for r in rows]
+        gain = entropy(rows) - sum(
+            len(g)/len(rows)*entropy(g) for g in groups.values())
+        if gain > best_gain + 1e-12:
+            best_gain, best_feature, best_groups = gain, f, groups
+    node = Node(len(rows), prob); node.feature = best_feature
+    node.children = {v: build_tree(g, [x for x in features if x != best_feature])
+                     for v, g in sorted(best_groups.items())}
+    return node
+\end{lstlisting}
+
+\subsection{Эксперименты}
+
+Отобранные признаки: \texttt{population}, \texttt{bruises},
+\texttt{cap-shape}, \texttt{gill-color}. Корень дерева —
+\texttt{gill-color} (цвет пластинок гриба).
+
+\begin{table}[H]\centering\small
+\caption{Характеристики и метрики дерева}\label{tab:dt}
+\begin{tabular}{lclc}\toprule
+Параметр & Значение & Метрика (test) & Значение \\ \midrule
+Узлов / листьев & 141 / 96 & Accuracy & 0.9335 \\
+Глубина & 4 & Precision & 0.9592 \\
+Корень & gill-color & Recall & 0.9004 \\
+Макс. потомков & 12 & ROC-AUC & 0.9828 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\img{\ImgDir/dt_tree_viz.png}{Визуализация построенного дерева (первые уровни)}{fig:dt-tree}{0.95}
+\img{\ImgDir/dt_metrics.png}{Сравнение метрик train/test}{fig:dt-metrics}{0.8}
+\img{\ImgDir/dt_roc.png}{ROC-кривая на тестовой выборке}{fig:dt-roc}{0.7}
+
+\textbf{Анализ:}
+\begin{itemize}
+    \item Дерево глубиной 4 с 141 узлом — компактная и
+          интерпретируемая модель. Ограничение глубины выступает
+          как неявная регуляризация (прунинг).
+    \item Наиболее информативный признак — \texttt{gill-color}
+          (цвет пластинок гриба).
+    \item Precision 0.96, Recall 0.90 — модель осторожна:
+          предпочитает пропустить съедобный гриб, чем ошибочно назвать
+          ядовитый съедобным (что соответствует цене ошибки).
+    \item ROC-AUC = 0.983 — отличная разделяющая способность.
+    \item Разница train/test минимальна — переобучения нет.
+\end{itemize}
+
+\subsection{Когда использовать}
+
+\begin{itemize}
+    \item Медицинская диагностика (понятные правила).
+    \item Кредитный скоринг (требуется объяснение решения).
+    \item Задачи с категориальными признаками и пропусками.
+    \item Предварительный анализ данных (feature importance).
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Лабораторная работа 6. Логистическая регрессия}
+
+\subsection{Постановка задачи}
+
+Предсказать, выжил ли пассажир Титаника (бинарная классификация),
+по~набору признаков: класс билета, пол, возраст, количество
+родственников, стоимость билета, порт посадки.
+
+\subsection{Описание данных}
+
+\begin{itemize}
+    \item \textbf{Источник:} \texttt{seaborn.load\_dataset('titanic')}.
+    \item \textbf{Объектов:} 891 пассажир (549 погибших / 342 выживших;
+          классы не сбалансированы — 61.6\% / 38.4\%).
+    \item \textbf{Признаки после обработки:} 9 числовых: sex, age,
+          sibsp, parch, fare, embarked\_Q/S, pclass\_2/3.
+    \item \textbf{Пропуски:} age (177), embarked (2) — заполнены
+          медианой.
+\end{itemize}
+
+\img{\ImgDir/lr_survival_factors.png}{Факторы выживаемости}{fig:lr-factors}{0.85}
+\img{\ImgDir/feature_distributions.png}{Распределение признаков датасета Titanic}{fig:lr-dist}{0.9}
+
+\subsection{Зачем метод}
+
+Логистическая регрессия — основной метод бинарной классификации,
+дающий вероятностную интерпретацию. В отличие от линейной регрессии,
+предсказывает вероятность принадлежности к классу через сигмоиду:
+\[
+P(y = 1 \mid x) = \sigma(w^T x + b) = \frac{1}{1 + e^{-(w^T x + b)}}.
+\]
+
+\textbf{Интерпретация коэффициентов:} \(\beta_j\) показывает изменение
+логарифма шансов (\(\log\frac{P}{1-P}\)) при изменении \(x_j\) на
+единицу. \textbf{Ограничения:} предполагает линейную разделимость
+в~логит-пространстве, чувствительна к масштабу признаков.
+
+\subsection{Принцип работы}
+
+Обучение сводится к минимизации log loss:
+\[
+\mathcal{L}(w, b) = -\frac{1}{n} \sum_{i=1}^{n}
+\bigl[ y_i \ln \hat{y}_i + (1 - y_i) \ln (1 - \hat{y}_i) \bigr],
+\]
+где \(\hat{y}_i = \sigma(w^T x_i + b)\).
+
+\fbox{\begin{minipage}{0.95\textwidth}
+\textbf{Псевдокод:} Логистическая регрессия (градиентный спуск)
+\begin{enumerate}
+    \item \textbf{Вход:} \(X_{\text{train}}\), \(y_{\text{train}}\), \(\eta\), \(N\).
+    \item Инициализировать \(w = 0\), \(b = 0\).
+    \item \textbf{Повторить} \(N\) раз:
+          \(\hat{y} = \sigma(Xw + b)\);
+          \(\nabla_w = \frac{1}{n} X^T (\hat{y} - y)\);
+          \(\nabla_b = \frac{1}{n} \sum (\hat{y}_i - y_i)\);
+          \(w := w - \eta \nabla_w\); \(b := b - \eta \nabla_b\).
+    \item \textbf{Выход:} \(w, b\).
+\end{enumerate}
+\end{minipage}}
+
+\medskip
+Реализован также \textbf{метод Ньютона}: \(\theta := \theta - H^{-1} \nabla \mathcal{L}(\theta)\),
+где \(H = \frac{1}{n} X_{\text{aug}}^T S X_{\text{aug}} + \lambda I\) —
+регуляризованная матрица Гессе, \(S = \operatorname{diag}(\hat{y}_i(1-\hat{y}_i))\).
+
+\begin{lstlisting}[caption={Градиентный спуск и метод Ньютона},label={lst:lr}]
+# Градиентный спуск
+class LogisticRegressionGD:
+    def fit(self, X, y):
+        self.weights = np.zeros((n_features, 1)); self.bias = 0.0
+        for _ in range(self.n_iter):
+            y_pred = self._sigmoid(np.dot(X, self.weights) + self.bias)
+            self.weights -= self.lr * (1/n) * np.dot(X.T, (y_pred - y))
+            self.bias    -= self.lr * (1/n) * np.sum(y_pred - y)
+        return self
+
+# Метод Ньютона
+grad = np.vstack([grad_w, [[grad_b]]])
+S = np.diag((y_pred * (1 - y_pred)).flatten())
+X_aug = np.hstack([X, np.ones((n, 1))])
+H = (1/n) * X_aug.T @ S @ X_aug + 1e-5 * np.eye(n_features + 1)
+delta = np.linalg.solve(H, grad)
+self.weights -= delta[:-1].reshape(-1, 1); self.bias -= delta[-1, 0]
+\end{lstlisting}
+
+\subsection{Эксперименты}
+
+Исследованы гиперпараметры: learning rate
+\(\eta \in \{0.001, 0.01, 0.05, 0.1, 0.5, 1.0\}\),
+количество итераций \(N \in \{100, 500, 1000, 5000, 10000\}\),
+метод оптимизации (градиентный спуск и метод Ньютона).
+
+\begin{table}[H]\centering\small
+\caption{Влияние learning rate (GD, \(N = 5000\))}\label{tab:lr-lr}
+\begin{tabular}{ccccc}\toprule
+\(\eta\) & Accuracy & Precision & Recall & F1 \\ \midrule
+0.001 & 0.7765 & 0.7302 & 0.6667 & 0.6970 \\
+0.01  & 0.7989 & 0.7797 & 0.6667 & 0.7188 \\
+0.05  & 0.8045 & 0.7931 & 0.6667 & 0.7244 \\
+\textbf{0.1} & \textbf{0.8045} & \textbf{0.7931} & 0.6667 & \textbf{0.7244} \\
+0.5   & 0.8045 & 0.7931 & 0.6667 & 0.7244 \\
+1.0   & 0.8045 & 0.7931 & 0.6667 & 0.7244 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\caption{Влияние количества итераций (GD, \(\eta = 0.1\))}\label{tab:lr-niter}
+\begin{tabular}{ccccc}\toprule
+\(N\) & Accuracy & Precision & Recall & F1 \\ \midrule
+100   & 0.7989 & 0.7797 & 0.6667 & 0.7188 \\
+500   & 0.7989 & 0.7797 & 0.6667 & 0.7188 \\
+1000  & 0.8045 & 0.7931 & 0.6667 & 0.7244 \\
+5000  & 0.8045 & 0.7931 & 0.6667 & 0.7244 \\
+10000 & \textbf{0.8045} & \textbf{0.7931} & 0.6667 & \textbf{0.7244} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\caption{Метод Ньютона — сходимость за 3 итерации}
+\begin{tabular}{cccc}\toprule
+Итераций & Accuracy & Precision & Recall / F1 \\ \midrule
+3 и более & 0.8045 & 0.7931 & 0.6667 / 0.7244 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\img{\ImgDir/hyperparameter_study.png}{Зависимость метрик от гиперпараметров}{fig:lr-hyper}{0.9}
+
+\img{\ImgDir/heatmap_summary.png}{Тепловая карта Accuracy (GD) и сводная таблица}{fig:lr-heat}{0.9}
+
+\textbf{Анализ:}
+\begin{itemize}
+    \item При \(\eta = 0.001\) модель сходится медленно
+          (Accuracy \(\approx 0.78\)). Оптимальный диапазон:
+          \(\eta \in [0.01, 0.1]\).
+    \item При \(\eta \geq 0.5\) расходимости не происходит благодаря
+          нормализации, но на более сложных датасетах возможна
+          нестабильность.
+    \item После \(N = 1000\) итераций наступает плато; дальнейшее
+          обучение не улучшает метрики.
+    \item Метод Ньютона сходится за 3--5 итераций против \(\sim 1000\)
+          для GD, но требует \(O(d^3)\) на обращение Гессе.
+    \item Precision (0.79) выше Recall (0.67) — модель осторожна
+          с~предсказанием класса «выжил», что объясняется дисбалансом
+          классов (61.6\% погибших).
+\end{itemize}
+
+\subsection{Финальная модель}
+
+С оптимальными параметрами (\(\eta = 0.1\), \(N = 10000\), GD):
+
+\begin{table}[H]\centering
+\caption{Финальные метрики}\label{tab:lr-final}
+\begin{tabular}{lclc}\toprule
+Метрика & Значение & Элемент & Значение \\ \midrule
+Accuracy  & 0.8045 & TN & 98 \\
+Precision & 0.7931 & FP & 12 \\
+Recall    & 0.6667 & FN & 23 \\
+F1-Score  & 0.7244 & TP & 46 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\img{\ImgDir/final_model.png}{Кривая обучения и матрица ошибок}{fig:lr-final}{0.9}
+
+Модель правильно классифицирует 98 из 110 погибших (Recall \(\approx
+0.89\)), но лишь 46 из 69 выживших (Recall \(\approx 0.67\)). Это
+консервативное поведение соответствует априорному распределению
+классов.
+
+\subsection{Когда использовать}
+
+\begin{itemize}
+    \item Бинарная классификация с требованием вероятностного выхода.
+    \item Задачи, где важна интерпретация коэффициентов (odds ratios).
+    \item Медицинские исследования (вероятность заболевания).
+    \item Базовый классификатор перед переходом к сложным моделям.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Сравнение методов}
+
+\subsection{Сводная таблица}
+
+\begin{table}[H]\centering\small
+\caption{Сравнительная характеристика методов}\label{tab:compare}
+\begin{tabular}{p{2.5cm}llll}\toprule
+Критерий & Лин. регрессия & \(k\)-NN & Дерево решений & Логист. регрессия \\ \midrule
+Тип задачи & Регрессия & Классификация & Классификация & Классификация \\
+Обучение & Аналитическое & Ленивое & Рекурсивное & Итеративное \\
+Масштабирование & Желательно & Обязательно & Не требуется & Обязательно \\
+Интерпретируемость & Высокая & Низкая & Очень высокая & Высокая \\
+Чувств. к выбросам & Высокая & Средняя & Низкая & Средняя \\
+Чувств. к размерности & Низкая & Высокая & Средняя & Низкая \\
+Нелинейность & Нет & Да & Да & Нет \\
+Пропуски & Мешают & Мешают & Обрабатывает & Мешают \\
+Скорость predict & \(O(d)\) & \(O(nd)\) & \(O(\text{depth})\) & \(O(d)\) \\
+Вероятностный выход & Нет & Нет & Да & Да \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Рекомендации «если…, то…»}
+
+\begin{enumerate}
+    \item \textbf{Мало признаков + нужна интерпретация}
+          \(\rightarrow\) линейная или логистическая регрессия.
+    \item \textbf{Сложные нелинейные зависимости}
+          \(\rightarrow\) дерево решений.
+    \item \textbf{Нет времени на обучение / быстрый baseline}
+          \(\rightarrow\) \(k\)-NN.
+    \item \textbf{Категориальные признаки / пропуски в данных}
+          \(\rightarrow\) дерево решений.
+    \item \textbf{Вероятностный прогноз для бинарного исхода}
+          \(\rightarrow\) логистическая регрессия.
+    \item \textbf{Высокая размерность (\(d > 100\))}
+          \(\rightarrow\) линейная/логистическая регрессия.
+    \item \textbf{Цена ошибки асимметрична} \(\rightarrow\) метод
+          с~настраиваемым порогом + оценка по Precision/Recall.
+\end{enumerate}
+
+\subsection{Итоговые метрики}
+
+\begin{table}[H]\centering
+\caption{Лучшие результаты модуля}\label{tab:final-all}
+\begin{tabular}{llc}\toprule
+Метод & Метрика & Значение \\ \midrule
+Линейная регрессия  & R² & 0.6446 \\
+\(k\)-NN (Wine)     & Accuracy & 0.9815 \\
+Дерево решений      & ROC-AUC & 0.9828 \\
+Логист. регрессия   & F1-Score & 0.7244 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+% ============================================================
+\section{Заключение}
+
+В ходе выполнения Модуля~2 освоены четыре фундаментальных алгоритма
+машинного обучения, каждый из которых реализован «с нуля» без опоры
+на высокоуровневые ML-фреймворки. Основные выводы:
+
+\begin{enumerate}
+    \item \textbf{Линейная регрессия} — простой и интерпретируемый
+          метод для задач регрессии. Ключевой фактор качества —
+          выбор информативных признаков (\texttt{median\_income} даёт
+          почти половину объяснённой дисперсии).
+    \item \textbf{\(k\)-NN} — эффективен при малой размерности и
+          хорошем масштабировании. Качество критически зависит от
+          набора признаков: переход от случайных к информативным
+          повысил Accuracy с~0.93 до~0.98.
+    \item \textbf{Дерево решений} — лучший выбор, когда требуется
+          интерпретируемость. На датасете Mushroom модель глубиной~4
+          достигла ROC-AUC 0.983, при этом правила легко читаются
+          человеком.
+    \item \textbf{Логистическая регрессия} — надёжный baseline для
+          бинарной классификации с вероятностным выходом. Метод
+          Ньютона сходится на порядки быстрее градиентного спуска,
+          но практический выигрыш проявляется только при больших~\(d\).
+    \item \textbf{Выбор метода} определяется типом задачи, размером
+          и~качеством данных, требованиями к интерпретируемости и
+          допустимой ценой ошибок. Не существует универсального
+          алгоритма — необходимо сопоставлять свойства метода
+          с~особенностями конкретной задачи.
+\end{enumerate}
+
+\newpage
+
+\section*{Использование искусственного интеллекта}
+\addcontentsline{toc}{section}{Использование искусственного интеллекта}
+
+В ходе работы использовались инструменты ИИ (Claude, ChatGPT) для
+помощи в написании кода, отладке алгоритмов и оформлении отчёта.
+Конкретно: реализация метода Ньютона и ID3 с нуля, векторизация
+расстояний в k-NN, подбор формул для отчёта, генерация графиков
+и~вёрстка \LaTeX. Все решения осмыслены и проверены авторами.
+
+\end{document}

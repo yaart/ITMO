@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://webprotege.stanford.edu/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/greatGrandmotherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>greatGrandmotherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/greatGrandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/descendantOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>descendantOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/ancestorOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/exSpouseOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>exSpouseOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/everSpouseOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/elizabeth_ii">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdfs:label>Elizabeth II</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1926</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2022</deathYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/george_vi"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_bowes_lyon"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/philip"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/ancestorOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>ancestorOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/descendantOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/anne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>Princess Anne</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1950</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/philip"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/mark_phillips">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorcedPerson"/>
+    <rdfs:label>Mark Phillips</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1948</birthYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/divorce_charles_diana_1996">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorceEvent"/>
+    <rdfs:label>divorce_charles_diana_1996</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/diana"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1996</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/Female">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Female</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/everSpouseOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>everSpouseOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_harry_meghan_2018">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_harry_meghan_2018</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/meghan"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/william">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Prince William</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/diana"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/catherine"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/catherine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/margaret">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdfs:label>Princess Margaret</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1930</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2002</deathYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/george_vi"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_bowes_lyon"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/sarah_ferguson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorcedPerson"/>
+    <rdfs:label>Sarah Ferguson</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1959</birthYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/diana">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorcedPerson"/>
+    <rdfs:label>Diana, Princess of Wales</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1961</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1997</deathYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/grandsonOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grandsonOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/grandchildOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/charles_iii">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorcedPerson"/>
+    <rdfs:label>Charles III</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1948</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/philip"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/camilla"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/camilla"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/diana"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/diana"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/granddaughterOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>granddaughterOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/grandchildOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/philip">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdfs:label>Prince Philip</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1921</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</deathYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/parentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>parentOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/childOf"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/ancestorOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/george">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/SinglePerson"/>
+    <rdfs:label>Prince George</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/catherine"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/elizabeth_bowes_lyon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdfs:label>Elizabeth Bowes-Lyon</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1900</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2002</deathYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/george_vi"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/birthYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>birthYear</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_anne_mark_1973">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_anne_mark_1973</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1973</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/sophie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Sophie, Duchess of Edinburgh</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</birthYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/james"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/james"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/peter_phillips">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>Peter Phillips</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1977</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/beatrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>Princess Beatrice</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1988</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/harry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Prince Harry</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1984</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/diana"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/meghan"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/meghan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_george_elizabeth_1923">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_george_elizabeth_1923</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/george_vi"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/elizabeth_bowes_lyon"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1923</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/edward">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Prince Edward</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/philip"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/james"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/james"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/sophie"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/sophie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/meghan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Meghan, Duchess of Sussex</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</birthYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/hasParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasParticipant</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Event"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/greatGrandfatherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>greatGrandfatherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/greatGrandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/grandchildOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grandchildOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/grandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/charlotte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/SinglePerson"/>
+    <rdfs:label>Princess Charlotte</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/catherine"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf714e33bc3bc413194d051b4fbaa7116">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/louise">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>Lady Louise Windsor</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2003</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/sophie"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/james"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/james"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/daughterOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>daughterOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/childOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/motherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>motherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/divorce_andrew_sarah_1996">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorceEvent"/>
+    <rdfs:label>divorce_andrew_sarah_1996</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1996</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/MarriageEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MarriageEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/DeadPerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DeadPerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/george_vi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+    <rdfs:label>George VI</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</birthYear>
+    <deathYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1952</deathYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/margaret"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/elizabeth_bowes_lyon"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/eventYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eventYear</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_elizabeth_philip_1947">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_elizabeth_philip_1947</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/philip"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1947</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_william_catherine_2011">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_william_catherine_2011</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/william"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/catherine"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2011</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/nephewOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>nephewOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/catherine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Catherine, Princess of Wales</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</birthYear>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <motherOf rdf:resource="http://webprotege.stanford.edu/louis"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/william"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6d2913f92f3e464bab95e28f832834e6">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/siblingOf"/>
+    <rdf:rest rdf:nodeID="N9e260ce3640745129d7ca165c4c18c8d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/mike_tindall">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Mike Tindall</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1978</birthYear>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/louis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/SinglePerson"/>
+    <rdfs:label>Prince Louis</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/william"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/catherine"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/george"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/charlotte"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/eugenie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>Princess Eugenie</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1990</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/zara_tindall">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Zara Tindall</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/peter_phillips"/>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/mike_tindall"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/mike_tindall"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/grandparentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grandparentOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/grandchildOf"/>
+    <owl:propertyChainAxiom rdf:nodeID="N3a78230b79204ef289f24e6620161ddc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_zara_mike_2011">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_zara_mike_2011</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/zara_tindall"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/mike_tindall"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2011</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nafa792ac233a4bd6bddaff1bddef2ec4">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:nodeID="Nf714e33bc3bc413194d051b4fbaa7116"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/sisterOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>sisterOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/siblingOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/james">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdfs:label>James, Earl of Wessex</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2007</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/sophie"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/louise"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/andrew">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorcedPerson"/>
+    <rdfs:label>Prince Andrew</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/elizabeth_ii"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/philip"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+    <parentOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/beatrice"/>
+    <fatherOf rdf:resource="http://webprotege.stanford.edu/eugenie"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <exSpouseOf rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_charles_diana_1981">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_charles_diana_1981</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/diana"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/LivingPerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>LivingPerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:disjointWith rdf:resource="http://webprotege.stanford.edu/DeadPerson"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3a78230b79204ef289f24e6620161ddc">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:nodeID="Nbc47b27630664246b3dd928788d4d2b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/grandfatherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grandfatherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/grandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/SinglePerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SinglePerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/DivorcedPerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DivorcedPerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/deathYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>deathYear</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/grandmotherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grandmotherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/grandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/childOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>childOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:inverseOf rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/brotherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>brotherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/siblingOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e260ce3640745129d7ca165c4c18c8d">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/auntOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>auntOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/sonOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>sonOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/childOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/greatGrandparentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>greatGrandparentOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:propertyChainAxiom rdf:nodeID="N6dd912357ee1491ba1a649cc903788c7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/lilibet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/SinglePerson"/>
+    <rdfs:label>Princess Lilibet</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/meghan"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+    <sisterOf rdf:resource="http://webprotege.stanford.edu/archie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/cousinOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>cousinOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:propertyChainAxiom rdf:nodeID="N2b97ae2be91d436bbf21d47629c885f4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/camilla">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Female"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriedPerson"/>
+    <rdfs:label>Queen Camilla</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1947</birthYear>
+    <currentSpouseOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <everSpouseOf rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/archie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/Male"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/LivingPerson"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/SinglePerson"/>
+    <rdfs:label>Prince Archie</rdfs:label>
+    <birthYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</birthYear>
+    <childOf rdf:resource="http://webprotege.stanford.edu/harry"/>
+    <childOf rdf:resource="http://webprotege.stanford.edu/meghan"/>
+    <siblingOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+    <brotherOf rdf:resource="http://webprotege.stanford.edu/lilibet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/uncleOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>uncleOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/MarriedPerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MarriedPerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/currentSpouseOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>currentSpouseOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/everSpouseOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_andrew_sarah_1986">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_andrew_sarah_1986</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/andrew"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/sarah_ferguson"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/nieceOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>nieceOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/divorce_anne_mark_1992">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/DivorceEvent"/>
+    <rdfs:label>divorce_anne_mark_1992</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/anne"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/mark_phillips"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1992</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_edward_sophie_1999">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_edward_sophie_1999</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/edward"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/sophie"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1999</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2b97ae2be91d436bbf21d47629c885f4">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/childOf"/>
+    <rdf:rest rdf:nodeID="N6d2913f92f3e464bab95e28f832834e6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6dd912357ee1491ba1a649cc903788c7">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:nodeID="Nafa792ac233a4bd6bddaff1bddef2ec4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/Male">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Male</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <owl:disjointWith rdf:resource="http://webprotege.stanford.edu/Female"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/britishRoyalFamily">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/DivorceEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DivorceEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/fatherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>fatherOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/marriage_charles_camilla_2005">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://webprotege.stanford.edu/MarriageEvent"/>
+    <rdfs:label>marriage_charles_camilla_2005</rdfs:label>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/charles_iii"/>
+    <hasParticipant rdf:resource="http://webprotege.stanford.edu/camilla"/>
+    <eventYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2005</eventYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/siblingOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>siblingOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://webprotege.stanford.edu/Person"/>
+    <rdfs:range rdf:resource="http://webprotege.stanford.edu/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc47b27630664246b3dd928788d4d2b6">
+    <rdf:first rdf:resource="http://webprotege.stanford.edu/parentOf"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://webprotege.stanford.edu/Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

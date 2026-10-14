@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+<rect width="960" height="640" fill="white"/>
+<g font-family="Arial" font-size="20" fill="#222">
+<text x="480" y="38" text-anchor="middle">ROC curve (test)</text>
+<line x1="100.0" y1="90" x2="100.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="550.0" x2="900" y2="550.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="100.0" y="582" text-anchor="middle">0.0</text>
+<text x="80" y="557.0" text-anchor="end">0.0</text>
+<line x1="260.0" y1="90" x2="260.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="458.0" x2="900" y2="458.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="260.0" y="582" text-anchor="middle">0.2</text>
+<text x="80" y="465.0" text-anchor="end">0.2</text>
+<line x1="420.0" y1="90" x2="420.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="366.0" x2="900" y2="366.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="420.0" y="582" text-anchor="middle">0.4</text>
+<text x="80" y="373.0" text-anchor="end">0.4</text>
+<line x1="580.0" y1="90" x2="580.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="274.0" x2="900" y2="274.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="580.0" y="582" text-anchor="middle">0.6</text>
+<text x="80" y="281.0" text-anchor="end">0.6</text>
+<line x1="740.0" y1="90" x2="740.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="182.0" x2="900" y2="182.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="740.0" y="582" text-anchor="middle">0.8</text>
+<text x="80" y="189.0" text-anchor="end">0.8</text>
+<line x1="900.0" y1="90" x2="900.0" y2="550" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<line x1="100" y1="90.0" x2="900" y2="90.0" stroke="#dddddd" stroke-width="1" stroke-dasharray=""/>
+<text x="900.0" y="582" text-anchor="middle">1.0</text>
+<text x="80" y="97.0" text-anchor="end">1.0</text>
+<line x1="100" y1="90" x2="100" y2="550" stroke="#222222" stroke-width="2" stroke-dasharray=""/>
+<line x1="100" y1="550" x2="900" y2="550" stroke="#222222" stroke-width="2" stroke-dasharray=""/>
+<line x1="100" y1="550" x2="900" y2="90" stroke="#888888" stroke-width="2" stroke-dasharray="8 6"/>
+<polyline points="100.000,550.000 100.000,318.531 101.900,304.432 102.850,294.444 103.800,282.107 105.701,265.070 106.651,252.146 106.651,237.458 106.651,221.009 106.651,209.847 107.601,197.510 108.551,186.935 109.501,172.835 109.501,161.086 109.501,157.561 115.202,154.036 120.903,148.161 122.803,144.049 126.603,139.349 128.504,135.824 131.354,133.474 133.254,132.886 135.154,131.711 144.656,124.074 144.656,123.487 151.306,122.899 157.957,122.312 170.309,119.374 175.059,118.787 176.960,117.612 205.463,109.974 214.964,107.625 244.418,104.100 266.271,101.162 277.672,98.225 295.724,93.525 297.625,93.525 324.228,92.937 346.081,90.587 349.881,90.587 353.682,90.000 900.000,90.000" fill="none" stroke="#1f77b4" stroke-width="3"/>
+<text x="500" y="624" text-anchor="middle">FPR</text>
+<text x="100" y="72" text-anchor="start">TPR</text>
+<text x="870" y="520" text-anchor="end">AUC = 0.9828</text>
+</g></svg>

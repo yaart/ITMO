@@ -1,0 +1,891 @@
+{
+  "count": 6499,
+  "probability": 0.4820741652561933,
+  "feature": "gill-color",
+  "children": {
+    "b": {
+      "count": 1392,
+      "probability": 1.0,
+      "feature": null,
+      "children": {}
+    },
+    "e": {
+      "count": 76,
+      "probability": 0.0,
+      "feature": null,
+      "children": {}
+    },
+    "g": {
+      "count": 591,
+      "probability": 0.6683587140439933,
+      "feature": "population",
+      "children": {
+        "n": {
+          "count": 89,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 106,
+          "probability": 0.16981132075471697,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 38,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "k": {
+              "count": 12,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 56,
+              "probability": 0.32142857142857145,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 32,
+                  "probability": 0.5625,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 24,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "count": 220,
+          "probability": 0.95,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 7,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 98,
+              "probability": 0.9693877551020408,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 89,
+                  "probability": 0.9662921348314607,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 9,
+                  "probability": 1.0,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "s": {
+              "count": 4,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 111,
+              "probability": 0.963963963963964,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "y": {
+          "count": 176,
+          "probability": 0.9545454545454546,
+          "feature": "cap-shape",
+          "children": {
+            "f": {
+              "count": 81,
+              "probability": 0.9753086419753086,
+              "feature": null,
+              "children": {}
+            },
+            "s": {
+              "count": 2,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 93,
+              "probability": 0.956989247311828,
+              "feature": null,
+              "children": {}
+            }
+          }
+        }
+      }
+    },
+    "h": {
+      "count": 586,
+      "probability": 0.7201365187713311,
+      "feature": "population",
+      "children": {
+        "a": {
+          "count": 83,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 112,
+          "probability": 0.3482142857142857,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 73,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "t": {
+              "count": 39,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "v": {
+          "count": 209,
+          "probability": 0.9808612440191388,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 168,
+              "probability": 0.9761904761904762,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 85,
+                  "probability": 0.9882352941176471,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 83,
+                  "probability": 0.963855421686747,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "t": {
+              "count": 41,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "y": {
+          "count": 182,
+          "probability": 0.978021978021978,
+          "feature": "cap-shape",
+          "children": {
+            "f": {
+              "count": 89,
+              "probability": 0.9775280898876404,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 93,
+              "probability": 0.978494623655914,
+              "feature": null,
+              "children": {}
+            }
+          }
+        }
+      }
+    },
+    "k": {
+      "count": 332,
+      "probability": 0.15963855421686746,
+      "feature": "population",
+      "children": {
+        "a": {
+          "count": 79,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "n": {
+          "count": 55,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 152,
+          "probability": 0.16447368421052633,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 73,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "t": {
+              "count": 79,
+              "probability": 0.31645569620253167,
+              "feature": "cap-shape",
+              "children": {
+                "b": {
+                  "count": 29,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "f": {
+                  "count": 10,
+                  "probability": 1.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 40,
+                  "probability": 0.375,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "count": 37,
+          "probability": 0.7567567567567568,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 9,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "t": {
+              "count": 28,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "y": {
+          "count": 9,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        }
+      }
+    },
+    "n": {
+      "count": 827,
+      "probability": 0.10278113663845223,
+      "feature": "population",
+      "children": {
+        "a": {
+          "count": 77,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "c": {
+          "count": 24,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "n": {
+          "count": 50,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 197,
+          "probability": 0.2131979695431472,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 28,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 68,
+              "probability": 0.17647058823529413,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 43,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 25,
+                  "probability": 0.48,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "x": {
+              "count": 101,
+              "probability": 0.297029702970297,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 54,
+                  "probability": 0.35185185185185186,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 47,
+                  "probability": 0.23404255319148937,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "count": 273,
+          "probability": 0.1575091575091575,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 8,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 123,
+              "probability": 0.0975609756097561,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 10,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 113,
+                  "probability": 0.10619469026548672,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "k": {
+              "count": 5,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "s": {
+              "count": 2,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 135,
+              "probability": 0.22962962962962963,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 24,
+                  "probability": 0.6666666666666666,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 111,
+                  "probability": 0.13513513513513514,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "y": {
+          "count": 206,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        }
+      }
+    },
+    "o": {
+      "count": 52,
+      "probability": 0.0,
+      "feature": null,
+      "children": {}
+    },
+    "p": {
+      "count": 1201,
+      "probability": 0.4379683597002498,
+      "feature": "population",
+      "children": {
+        "a": {
+          "count": 77,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "n": {
+          "count": 40,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 226,
+          "probability": 0.37168141592920356,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 142,
+              "probability": 0.14084507042253522,
+              "feature": "cap-shape",
+              "children": {
+                "b": {
+                  "count": 13,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "f": {
+                  "count": 42,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "k": {
+                  "count": 13,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 74,
+                  "probability": 0.2702702702702703,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "t": {
+              "count": 84,
+              "probability": 0.7619047619047619,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 44,
+                  "probability": 0.7727272727272727,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 40,
+                  "probability": 0.75,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "count": 479,
+          "probability": 0.5594989561586639,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 216,
+              "probability": 0.9212962962962963,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 95,
+                  "probability": 0.9263157894736842,
+                  "feature": null,
+                  "children": {}
+                },
+                "s": {
+                  "count": 4,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 117,
+                  "probability": 0.9487179487179487,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "t": {
+              "count": 263,
+              "probability": 0.2623574144486692,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 127,
+                  "probability": 0.2677165354330709,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 136,
+                  "probability": 0.25735294117647056,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "y": {
+          "count": 379,
+          "probability": 0.45910290237467016,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 189,
+              "probability": 0.9206349206349206,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 96,
+                  "probability": 0.9375,
+                  "feature": null,
+                  "children": {}
+                },
+                "s": {
+                  "count": 3,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 90,
+                  "probability": 0.9333333333333333,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "t": {
+              "count": 190,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            }
+          }
+        }
+      }
+    },
+    "r": {
+      "count": 21,
+      "probability": 1.0,
+      "feature": null,
+      "children": {}
+    },
+    "u": {
+      "count": 397,
+      "probability": 0.08816120906801007,
+      "feature": "bruises",
+      "children": {
+        "f": {
+          "count": 46,
+          "probability": 0.7608695652173914,
+          "feature": "population",
+          "children": {
+            "s": {
+              "count": 17,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            },
+            "v": {
+              "count": 24,
+              "probability": 0.75,
+              "feature": "cap-shape",
+              "children": {
+                "f": {
+                  "count": 3,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 21,
+                  "probability": 0.8571428571428571,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "y": {
+              "count": 5,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "t": {
+          "count": 351,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        }
+      }
+    },
+    "w": {
+      "count": 955,
+      "probability": 0.19476439790575917,
+      "feature": "population",
+      "children": {
+        "c": {
+          "count": 107,
+          "probability": 0.19626168224299065,
+          "feature": "bruises",
+          "children": {
+            "f": {
+              "count": 14,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            },
+            "t": {
+              "count": 93,
+              "probability": 0.07526881720430108,
+              "feature": "cap-shape",
+              "children": {
+                "b": {
+                  "count": 2,
+                  "probability": 1.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "c": {
+                  "count": 2,
+                  "probability": 1.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "f": {
+                  "count": 30,
+                  "probability": 0.06666666666666667,
+                  "feature": null,
+                  "children": {}
+                },
+                "k": {
+                  "count": 29,
+                  "probability": 0.034482758620689655,
+                  "feature": null,
+                  "children": {}
+                },
+                "x": {
+                  "count": 30,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "n": {
+          "count": 89,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        },
+        "s": {
+          "count": 177,
+          "probability": 0.3389830508474576,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 40,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 47,
+              "probability": 0.7021276595744681,
+              "feature": null,
+              "children": {}
+            },
+            "k": {
+              "count": 13,
+              "probability": 0.0,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 77,
+              "probability": 0.35064935064935066,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 12,
+                  "probability": 0.0,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 65,
+                  "probability": 0.4153846153846154,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "v": {
+          "count": 360,
+          "probability": 0.2916666666666667,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 14,
+              "probability": 1.0,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 162,
+              "probability": 0.2839506172839506,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 21,
+                  "probability": 0.3333333333333333,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 141,
+                  "probability": 0.2765957446808511,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            },
+            "k": {
+              "count": 20,
+              "probability": 0.3,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 164,
+              "probability": 0.23780487804878048,
+              "feature": "bruises",
+              "children": {
+                "f": {
+                  "count": 19,
+                  "probability": 0.3684210526315789,
+                  "feature": null,
+                  "children": {}
+                },
+                "t": {
+                  "count": 145,
+                  "probability": 0.2206896551724138,
+                  "feature": null,
+                  "children": {}
+                }
+              }
+            }
+          }
+        },
+        "y": {
+          "count": 222,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        }
+      }
+    },
+    "y": {
+      "count": 69,
+      "probability": 0.2608695652173913,
+      "feature": "population",
+      "children": {
+        "c": {
+          "count": 44,
+          "probability": 0.4090909090909091,
+          "feature": "cap-shape",
+          "children": {
+            "b": {
+              "count": 7,
+              "probability": 0.14285714285714285,
+              "feature": null,
+              "children": {}
+            },
+            "f": {
+              "count": 13,
+              "probability": 0.46153846153846156,
+              "feature": null,
+              "children": {}
+            },
+            "k": {
+              "count": 11,
+              "probability": 0.45454545454545453,
+              "feature": null,
+              "children": {}
+            },
+            "x": {
+              "count": 13,
+              "probability": 0.46153846153846156,
+              "feature": null,
+              "children": {}
+            }
+          }
+        },
+        "v": {
+          "count": 25,
+          "probability": 0.0,
+          "feature": null,
+          "children": {}
+        }
+      }
+    }
+  }
+}
